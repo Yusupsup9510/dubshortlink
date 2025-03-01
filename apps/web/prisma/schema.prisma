@@ -1,3 +1,18 @@
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model Project {
+  id             String          @id @default(cuid())
+  defaultDomains DefaultDomains?
+  // ... other Project fields ...
+}
+
 model DefaultDomains {
   id                String   @id @default(cuid())
   wulanaetherabizid Boolean  @default(true)
